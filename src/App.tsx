@@ -17,7 +17,7 @@ function App() {
     age: 0
   });
 
-  const [showAllData, setShowAllData] = useState<string>();  
+  const [showAllData, setShowAllData] = useState<string>();
 
 
   const eventInputOnChange = (event: any) => {
@@ -31,12 +31,21 @@ function App() {
   function handleEventInputOnChange(event: any) {
     // evitar que envio o formlário enquanto digita
     event.preventDefault();
-    setShowAllData("Name: "  + formData.firstName + ", profession: " + formData.profession + ", age: " + Number(formData.age));
+    setShowAllData("Name: " + formData.firstName + ", profession: " + formData.profession + ", age: " + Number(formData.age));
   }
 
   function removeElement(event: any) {
     event.preventDefault();
     setShowAllData('');
+  }
+
+  function removeInputs(evento: any) {
+    evento.preventDefault();
+    setFormData({
+      firstName: '',
+      profession: '',
+      age: 0
+    })
   }
 
   return (
@@ -71,10 +80,15 @@ function App() {
             Show all form data
           </button>
           <button
-          onClick={removeElement}>
-            limpar
+            onClick={removeElement}>
+            clean show data forma
+          </button>
+          <button
+            onClick={removeInputs}>
+            clean show data forma
           </button>
         </form>
+
         <h3 id="showAllData">{showAllData}</h3>
       </div>
     </>
