@@ -17,6 +17,8 @@ function App() {
     age: 0
   });
 
+  const [showAllData, setShowAllData] = useState<string>();  
+
 
   const eventInputOnChange = (event: any) => {
     const inputName = event.target.name;
@@ -26,11 +28,17 @@ function App() {
     });
   }
 
+  function handleEventInputOnChange(event: any) {
+    // evitar que envio o formlário enquanto digita
+    event.preventDefault();
+    setShowAllData("Name: "  + formData.firstName + ", profession: " + formData.profession + ", age: " + Number(formData.age));
+  }
+
   return (
     <>
-      <h2>Criação do projeto</h2>
+      <h2>Formulário inicial</h2>
       <div className="card">
-        <form>
+        <form onSubmit={handleEventInputOnChange}>
           <input
             name="firstName"
             value={formData.firstName}
@@ -53,8 +61,12 @@ function App() {
             type="number"
             placeholder='Inform your age'>
           </input>
-          <button>Show all form data </button>
+          <button
+            type="submit">
+            Show all form data
+          </button>
         </form>
+        <h3>{showAllData}</h3>
       </div>
     </>
   )

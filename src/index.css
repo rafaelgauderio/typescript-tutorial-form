@@ -59,6 +59,10 @@ input {
   border-radius: 5px;
 }
 
+h3 {
+  margin: 10px;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
