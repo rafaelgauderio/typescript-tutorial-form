@@ -34,6 +34,11 @@ function App() {
     setShowAllData("Name: "  + formData.firstName + ", profession: " + formData.profession + ", age: " + Number(formData.age));
   }
 
+  function removeElement(event: any) {
+    event.preventDefault();
+    setShowAllData('');
+  }
+
   return (
     <>
       <h2>Formulário inicial</h2>
@@ -65,8 +70,12 @@ function App() {
             type="submit">
             Show all form data
           </button>
+          <button
+          onClick={removeElement}>
+            limpar
+          </button>
         </form>
-        <h3>{showAllData}</h3>
+        <h3 id="showAllData">{showAllData}</h3>
       </div>
     </>
   )
