@@ -85,7 +85,7 @@ function App() {
           </button>
           <button
             onClick={removeInputs}>
-            clean show data forma
+            clean inputs
           </button>
         </form>
 
