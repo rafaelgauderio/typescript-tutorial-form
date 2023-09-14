@@ -17,16 +17,13 @@ function App() {
     age: 0
   });
 
-  const eventOnChangeFirstName = (evento: any) => {
-    setFormData({ ...formData, firstName: evento.target.value })
-  }
 
-  function eventOnChangeProfession (evento: any) {
-    setFormData({ ...formData, profession: evento.target.value })
-  }
-
-  function eventOnChangeAge (event: any) {
-    setFormData({...formData, age: event.target.value})
+  const eventInputOnChange = (event: any) => {
+    const inputName = event.target.name;
+    const inputValue = event.target.value;
+    setFormData({
+      ...formData, [inputName]: inputValue
+    });
   }
 
   return (
@@ -37,7 +34,7 @@ function App() {
           <input
             name="firstName"
             value={formData.firstName}
-            onChange={eventOnChangeFirstName}
+            onChange={eventInputOnChange}
             type="text"
             placeholder='Inform your name'>
 
@@ -45,14 +42,14 @@ function App() {
           <input
             name="profession"
             value={formData.profession}
-            onChange={eventOnChangeProfession}
+            onChange={eventInputOnChange}
             type="text"
             placeholder='Inform your profession'>
           </input>
           <input
             name="age"
             value={formData.age}
-            onChange={eventOnChangeAge}
+            onChange={eventInputOnChange}
             type="number"
             placeholder='Inform your age'>
           </input>
